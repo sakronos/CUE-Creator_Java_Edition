@@ -33,7 +33,7 @@
          </children>
       </GridPane>
       <Button layoutX="245.0" layoutY="341.0" mnemonicParsing="false" text="生成CUE文件" />
-      <Button fx:id="loca_choose" layoutX="447.0" layoutY="63.0" mnemonicParsing="false" onAction="#clickmethod_LocaChoose" text="选择路径" />
+      <Button fx:id="loca_choose" layoutX="447.0" layoutY="63.0" mnemonicParsing="false" onAction="#clickMethod_LocalChoose" text="选择路径" />
       <TextField fx:id="show_location" layoutX="96.0" layoutY="63.0" prefHeight="30.0" prefWidth="342.0" />
    </children>
 </Pane>
