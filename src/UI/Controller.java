@@ -2,7 +2,10 @@ package UI;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.*;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import java.io.File;
@@ -10,7 +13,14 @@ import java.io.File;
 public class Controller {
     private File file;
     @FXML protected TextField show_location;
-    @FXML protected void clickMethod_LocalChoose(ActionEvent event1) {
+    @FXML protected TextArea preview;
+    @FXML protected TextField date;
+    @FXML protected TextField genre;
+    @FXML protected TextField title;
+    @FXML protected TextField singer;
+    @FXML protected TextField performer;
+    @FXML protected ChoiceBox filestyle;
+    @FXML protected void clickMethod_LocalChoose(ActionEvent event) {
         DirectoryChooser directoryChooser=new DirectoryChooser();
         file = directoryChooser.showDialog(new Stage());
         try {
@@ -19,5 +29,12 @@ public class Controller {
         } catch (Exception exception) {
             System.out.println("No Directory is chosen.");
         }
+    }
+    @FXML protected void handleMethod_output(ActionEvent event) {
+
+    }
+    @FXML protected void handleSelected_style(ScrollEvent event) {
+        System.out.println("rs");
+        System.out.println(filestyle.getSelectionModel().getSelectedIndex());
     }
 }

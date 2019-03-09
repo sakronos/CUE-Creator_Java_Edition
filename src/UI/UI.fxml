@@ -45,11 +45,11 @@
                      <TextField fx:id="singer" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                     </children>
                 </GridPane>
-                <Button fx:id="generateC" layoutX="281.0" layoutY="332.0" mnemonicParsing="false" text="生成CUE文件" />
+                <Button fx:id="generateC" layoutX="281.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleMethod_output" text="生成CUE文件" />
                 <Button fx:id="loca_choose" layoutX="390.0" layoutY="63.0" mnemonicParsing="false" onAction="#clickMethod_LocalChoose" text="选择路径" />
                 <TextField fx:id="show_location" editable="false" layoutX="48.0" layoutY="63.0" prefHeight="30.0" prefWidth="342.0" />
                 <Label layoutX="50.0" layoutY="337.0" prefHeight="20.0" prefWidth="58.0" text="后缀名:" />
-                <ChoiceBox layoutX="118.0" layoutY="332.0" prefHeight="30.0" prefWidth="109.0">
+                <ChoiceBox fx:id="filestyle" layoutX="118.0" layoutY="332.0" prefHeight="30.0" prefWidth="109.0">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="WAV" />
@@ -66,7 +66,7 @@
     </AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="4000.0" prefWidth="400.0">
          <children>
-            <TextArea layoutX="55.0" layoutY="34.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+            <TextArea fx:id="preview" layoutX="55.0" layoutY="34.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
