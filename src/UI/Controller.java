@@ -33,8 +33,8 @@ public class Controller {
     @FXML protected void handleMethod_output(ActionEvent event) {
 
     }
-    @FXML protected void handleSelected_style(ScrollEvent event) {
-        System.out.println("rs");
-        System.out.println(filestyle.getSelectionModel().getSelectedIndex());
+
+    @FXML protected void handleTypeChoice(MouseEvent event) {
+        filestyle.getSelectionModel().selectedIndexProperty().addListener(new ChoiceEvent(filestyle));
     }
 }

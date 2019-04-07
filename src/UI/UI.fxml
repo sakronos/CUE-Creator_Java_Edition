@@ -49,7 +49,7 @@
                 <Button fx:id="loca_choose" layoutX="390.0" layoutY="63.0" mnemonicParsing="false" onAction="#clickMethod_LocalChoose" text="选择路径" />
                 <TextField fx:id="show_location" editable="false" layoutX="48.0" layoutY="63.0" prefHeight="30.0" prefWidth="342.0" />
                 <Label layoutX="50.0" layoutY="337.0" prefHeight="20.0" prefWidth="58.0" text="后缀名:" />
-                <ChoiceBox fx:id="filestyle" layoutX="118.0" layoutY="332.0" prefHeight="30.0" prefWidth="109.0">
+                <ChoiceBox fx:id="filestyle" layoutX="118.0" layoutY="332.0" onMouseReleased="#handleTypeChoice" prefHeight="30.0" prefWidth="109.0">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="WAV" />
