@@ -1,5 +1,7 @@
 package UI;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -36,5 +38,40 @@ public class Controller {
 
     @FXML protected void handleTypeChoice(MouseEvent event) {
         filestyle.getSelectionModel().selectedIndexProperty().addListener(new ChoiceEvent(filestyle));
+    }
+
+    @FXML protected void setGenre(MouseEvent event) {
+        genre.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                Album.getInstance().setGenre(genre.getText());
+            }
+        });
+    }
+
+    @FXML protected void setDate(MouseEvent event) {
+        date.textProperty().addListener((observable, oldValue, newValue) -> {
+            Album.getInstance().setDate(date.getText());
+        });
+    }
+
+    @FXML protected void setTitle(MouseEvent event) {
+        title.textProperty().addListener((observable, oldValue, newValue) -> {
+            Album.getInstance().setTitle(title.getText());
+            //System.out.println(Album.getInstance().getTitle());
+            //preview.setText(Album.getInstance().getTitle()+"\n"+Album.getInstance().getGenre());
+        });
+    }
+
+    @FXML protected void setSinger(MouseEvent event) {
+        singer.textProperty().addListener((observable, oldValue, newValue) -> {
+            Album.getInstance().setSinger(singer.getText());
+        });
+    }
+
+    @FXML protected void  setPerformer(MouseEvent event) {
+        performer.textProperty().addListener((observable, oldValue, newValue) -> {
+            Album.getInstance().setPerformer(performer.getText());
+        });
     }
 }

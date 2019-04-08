@@ -1,11 +1,11 @@
 package UI;
 
 public class Album {
-    String genre;
-    String date;
-    String title;
-    String performer;
-    String singer;
+    protected String genre;
+    protected String date;
+    protected String title;
+    protected String performer;
+    protected String singer;
 
     private static class SingletonHolder {
         private static final Album INSTANCE =new Album();
@@ -36,5 +36,25 @@ public class Album {
 
     public void setSinger(String singer) {
         this.singer = singer;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getPerformer() {
+        return performer;
+    }
+
+    public String getSinger() {
+        return singer;
     }
 }
