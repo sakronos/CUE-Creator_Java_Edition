@@ -14,6 +14,7 @@ import java.io.File;
 
 public class Controller {
     private File file;
+    private String CUEFile;
     @FXML protected TextField show_location;
     @FXML protected TextArea preview;
     @FXML protected TextField date;
@@ -38,6 +39,8 @@ public class Controller {
 
     @FXML protected void handleTypeChoice(MouseEvent event) {
         filestyle.getSelectionModel().selectedIndexProperty().addListener(new ChoiceEvent(filestyle));
+        previewMaker.maker(file,CUEFile,filestyle.getSelectionModel().getSelectedIndex(),preview);
+        //preview.setText(CUEFile);
     }
 
     @FXML protected void setGenre(MouseEvent event) {
