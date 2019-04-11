@@ -24,6 +24,7 @@ public class previewMaker {
     }
     public static void maker(File file, String text, int filestyle, TextArea output) {
         try {
+            int index=1;
             String temp;
             if (Album.getInstance().getTitle()!=null)
                 text="TITLE \""+Album.getInstance().getTitle()+"\""+"\n";
@@ -38,9 +39,13 @@ public class previewMaker {
             for (File one:files) {
                 if (one.getName().endsWith(orderToStyle(filestyle))) {
                     temp="FILE \""+one.getName()+"\" WAVE\n";
-
+                    temp= temp + "  TRACK "+index+" AUDIO\n";
+                    temp=temp+"    TITLE \""+one.getName().substring(0,one.getName().lastIndexOf("."))+"\"\n";
                     //System.out.println(temp);
-
+                    index++;
+                    if (Album.getInstance().getSinger()!=null)
+                        temp=temp+"    PERFORMER \""+Album.getInstance().getSinger()+"\"\n";
+                    temp=temp+"    INDEX 01 00:00:00\n";
                     text=text+temp;
                 }
             }

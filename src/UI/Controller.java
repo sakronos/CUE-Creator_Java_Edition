@@ -11,6 +11,8 @@ import javafx.scene.input.*;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Controller {
     private File file;
@@ -34,7 +36,27 @@ public class Controller {
         }
     }
     @FXML protected void handleMethod_output(ActionEvent event) {
-
+        //System.out.println(preview.getText());
+        FileWriter fileWriter=null;
+        try {
+            fileWriter=new FileWriter(file.getPath()+"\\"+Album.getInstance().getTitle()+".cue",false);
+            fileWriter.write(preview.getText());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                if (fileWriter!=null)
+                    fileWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            //Runtime.getRuntime().exec("explorer /select, " +file.getPath());
+            Runtime.getRuntime().exec("explorer /root, " +file.getPath());
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML protected void handleTypeChoice(MouseEvent event) {
@@ -53,6 +75,7 @@ public class Controller {
     }
 
     @FXML protected void setDate(MouseEvent event) {
+        //TODO 似乎日期最后设置的话预览界面总不能成功更新DATE，原因有待找出
         date.textProperty().addListener((observable, oldValue, newValue) -> {
             Album.getInstance().setDate(date.getText());
             previewMaker.maker(file,CUEFile,filestyle.getSelectionModel().getSelectedIndex(),preview);
