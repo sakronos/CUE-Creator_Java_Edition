@@ -58,6 +58,7 @@
                             <String fx:value="DFF" />
                             <String fx:value="DSF" />
                             <String fx:value="DTS" />
+                            <String fx:value="TTA" />
                         </FXCollections>
                     </items>
                 </ChoiceBox>

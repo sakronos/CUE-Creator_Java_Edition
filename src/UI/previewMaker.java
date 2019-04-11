@@ -19,6 +19,8 @@ public class previewMaker {
                 return ".dsf";
             case 5:
                 return ".dts";
+            case 6:
+                return ".tta";
         }
         return null;
     }
