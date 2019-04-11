@@ -40,7 +40,6 @@ public class Controller {
     @FXML protected void handleTypeChoice(MouseEvent event) {
         filestyle.getSelectionModel().selectedIndexProperty().addListener(new ChoiceEvent(filestyle));
         previewMaker.maker(file,CUEFile,filestyle.getSelectionModel().getSelectedIndex(),preview);
-        //preview.setText(CUEFile);
     }
 
     @FXML protected void setGenre(MouseEvent event) {
@@ -48,6 +47,7 @@ public class Controller {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 Album.getInstance().setGenre(genre.getText());
+                previewMaker.maker(file,CUEFile,filestyle.getSelectionModel().getSelectedIndex(),preview);
             }
         });
     }
@@ -55,6 +55,7 @@ public class Controller {
     @FXML protected void setDate(MouseEvent event) {
         date.textProperty().addListener((observable, oldValue, newValue) -> {
             Album.getInstance().setDate(date.getText());
+            previewMaker.maker(file,CUEFile,filestyle.getSelectionModel().getSelectedIndex(),preview);
         });
     }
 
@@ -63,18 +64,21 @@ public class Controller {
             Album.getInstance().setTitle(title.getText());
             //System.out.println(Album.getInstance().getTitle());
             //preview.setText(Album.getInstance().getTitle()+"\n"+Album.getInstance().getGenre());
+            previewMaker.maker(file,CUEFile,filestyle.getSelectionModel().getSelectedIndex(),preview);
         });
     }
 
     @FXML protected void setSinger(MouseEvent event) {
         singer.textProperty().addListener((observable, oldValue, newValue) -> {
             Album.getInstance().setSinger(singer.getText());
+            previewMaker.maker(file,CUEFile,filestyle.getSelectionModel().getSelectedIndex(),preview);
         });
     }
 
     @FXML protected void  setPerformer(MouseEvent event) {
         performer.textProperty().addListener((observable, oldValue, newValue) -> {
             Album.getInstance().setPerformer(performer.getText());
+            previewMaker.maker(file,CUEFile,filestyle.getSelectionModel().getSelectedIndex(),preview);
         });
     }
 }

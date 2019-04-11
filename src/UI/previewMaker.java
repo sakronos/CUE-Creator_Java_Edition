@@ -25,6 +25,15 @@ public class previewMaker {
     public static void maker(File file, String text, int filestyle, TextArea output) {
         try {
             String temp;
+            if (Album.getInstance().getTitle()!=null)
+                text="TITLE \""+Album.getInstance().getTitle()+"\""+"\n";
+            if (Album.getInstance().getDate()!=null) {
+                text=text+"REM DATE "+Album.getInstance().getDate()+"\n";
+            }
+            if (Album.getInstance().getPerformer()!=null)
+                text=text+"PERFORMER \""+Album.getInstance().getPerformer()+"\"\n";
+            if (Album.getInstance().getGenre()!=null)
+                text=text+"REM GENRE "+Album.getInstance().getGenre()+"\n";
             File[] files=file.listFiles();
             for (File one:files) {
                 if (one.getName().endsWith(orderToStyle(filestyle))) {

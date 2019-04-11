@@ -38,7 +38,7 @@
                         <Label text="专辑:" GridPane.rowIndex="2" />
                         <TextField fx:id="genre" onMouseReleased="#setGenre" GridPane.columnIndex="1" />
                         <TextField fx:id="date" onMouseReleased="#setDate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="title" onMouseReleased="#setTitle" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="title" onMouseReleased="#setTitle" promptText="NOT NULL" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField fx:id="performer" onMouseReleased="#setPerformer" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label text="专辑演出者:" GridPane.rowIndex="3" />
                      <Label text="歌曲演出者:" GridPane.rowIndex="4" />
